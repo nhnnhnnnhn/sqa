@@ -40,3 +40,10 @@ appium_tests/reports/
 # IDE / local editor state
 .idea/
 .vscode/
+.gitnexus
+
+AGENTS.md 
+CLAUDE.md 
+
+/.claude
+/.gitnexus 

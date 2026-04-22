@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --runInBand",
+    "test:integration": "jest --runInBand tests/integration",
+    "test:db:setup": "PGPASSWORD=12345 psql -h localhost -U postgres -d postgres -tAc \"SELECT 1 FROM pg_database WHERE datname='datn_test'\" | grep -q 1 || PGPASSWORD=12345 createdb -h localhost -U postgres datn_test && PGPASSWORD=12345 psql -h localhost -U postgres -d datn_test -v ON_ERROR_STOP=1 -f tests/sql/test_schema.sql",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
     "prestart": "npm run build",
@@ -45,12 +47,15 @@
     "@types/adm-zip": "^0.5.7",
     "@types/bcrypt": "^6.0.0",
     "@types/express": "^5.0.3",
+    "@types/jest": "^29.5.14",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/multer": "^2.0.0",
     "@types/node": "^24.5.1",
     "@types/pg": "^8.15.5",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.8",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.9",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.2"
   }

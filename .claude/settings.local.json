@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(docker exec postgres-pgvector:*)"
+      "Bash(docker exec postgres-pgvector:*)",
+      "Bash(grep -E \"\\\\.\\(ts|tsx|js\\)$\")",
+      "Bash(grep -A 5 \"duration\\\\|timeout\\\\|5.*minute\\\\|warn.*time\" /Users/nhn/Documents/Code/datn_workspace/frontend_user/src/app/exam/[id]/do/page.tsx)"
     ]
   }
 }
