@@ -5,7 +5,7 @@ These tests use Python, pytest, and Selenium 4. Selenium Manager downloads the b
 ## Install
 
 ```powershell
-cd "D:\sqa\selenium test"
+cd tests/e2e/selenium
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -16,17 +16,17 @@ pip install -r requirements.txt
 Run these in separate terminals before running Selenium:
 
 ```powershell
-cd "D:\sqa\backend"
+cd backend
 npm run dev
 ```
 
 ```powershell
-cd "D:\sqa\frontend_user"
+cd frontend_user
 npm run dev
 ```
 
 ```powershell
-cd "D:\sqa\frontend_admin"
+cd frontend_admin
 npm run dev
 ```
 
@@ -54,10 +54,10 @@ $env:ADMIN_PASSWORD="admin123"
 pytest -q
 ```
 
-Edge is configured as the default browser. If Selenium cannot download EdgeDriver automatically, place `msedgedriver.exe` in `selenium test\drivers` or point to it explicitly:
+Edge is configured as the default browser. If Selenium cannot download EdgeDriver automatically, place `msedgedriver.exe` in `tests/e2e/selenium/drivers` or point to it explicitly:
 
 ```powershell
-$env:EDGE_DRIVER_PATH="D:\sqa\selenium test\drivers\msedgedriver.exe"
+$env:EDGE_DRIVER_PATH="tests/e2e/selenium/drivers/msedgedriver.exe"
 pytest -q
 ```
 
